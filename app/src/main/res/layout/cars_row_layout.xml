@@ -12,6 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="270dp"
         android:contentDescription="@string/car_image"
+        android:foreground="@drawable/gradient_shape"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

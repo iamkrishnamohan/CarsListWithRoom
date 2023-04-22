@@ -13,6 +13,7 @@ import com.sevenpeakssoftware.krishna.R
 import com.sevenpeakssoftware.krishna.databinding.CarsRowLayoutBinding
 import com.sevenpeakssoftware.krishna.response.CarsDetailsResponse
 import com.sevenpeakssoftware.krishna.utils.Constants.BASE_URL
+import com.sevenpeakssoftware.krishna.utils.convertDateToDifferentFormat
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,7 +44,11 @@ class CarsAdapter @Inject constructor() : RecyclerView.Adapter<CarsAdapter.ViewH
             binding.apply {
                 tvCarTitle.text = item.title
                 tvCarDesc.text = item.ingress
-                //tvRate.text=item.voteAverage.toString()
+                item.dateTime?.let {
+                    val convertedDate = convertDateToDifferentFormat(it)
+                    tvCarDateTime.text = convertedDate
+                }
+
                 val moviePosterURL = BASE_URL + item?.image
                 imageView.load(moviePosterURL) {
                     crossfade(true)
