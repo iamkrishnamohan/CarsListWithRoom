@@ -10,7 +10,6 @@ import javax.inject.Inject
 
 class ApiRepository @Inject constructor(private val apiServices: ApiService) {
 
-    //suspend fun getPopularCarsList() = apiServices.getCarDetails()
     fun getPopularCarsList(): Flow<NetworkResponse<CarsDetailsResponse>> =
         flow {
             emit(NetworkResponse.Loading)

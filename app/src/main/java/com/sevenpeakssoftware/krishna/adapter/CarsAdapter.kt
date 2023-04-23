@@ -11,7 +11,7 @@ import coil.load
 import coil.size.Scale
 import com.sevenpeakssoftware.krishna.R
 import com.sevenpeakssoftware.krishna.databinding.CarsRowLayoutBinding
-import com.sevenpeakssoftware.krishna.response.CarsDetailsResponse
+import com.sevenpeakssoftware.krishna.response.CarsModel
 import com.sevenpeakssoftware.krishna.utils.Constants.BASE_URL
 import com.sevenpeakssoftware.krishna.utils.convertDateToDifferentFormat
 import javax.inject.Inject
@@ -40,7 +40,7 @@ class CarsAdapter @Inject constructor() : RecyclerView.Adapter<CarsAdapter.ViewH
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(item: CarsDetailsResponse.Content) {
+        fun bind(item: CarsModel) {
             binding.apply {
                 tvCarTitle.text = item.title
                 tvCarDesc.text = item.ingress
@@ -65,20 +65,20 @@ class CarsAdapter @Inject constructor() : RecyclerView.Adapter<CarsAdapter.ViewH
         }
     }
 
-    private var onItemClickListener: ((CarsDetailsResponse.Content) -> Unit)? = null
+    private var onItemClickListener: ((CarsModel) -> Unit)? = null
 
 
-    private val differCallback = object : DiffUtil.ItemCallback<CarsDetailsResponse.Content>() {
+    private val differCallback = object : DiffUtil.ItemCallback<CarsModel>() {
         override fun areItemsTheSame(
-            oldItem: CarsDetailsResponse.Content,
-            newItem: CarsDetailsResponse.Content
+            oldItem: CarsModel,
+            newItem: CarsModel
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: CarsDetailsResponse.Content,
-            newItem: CarsDetailsResponse.Content
+            oldItem: CarsModel,
+            newItem: CarsModel
         ): Boolean {
             return oldItem == newItem
         }
