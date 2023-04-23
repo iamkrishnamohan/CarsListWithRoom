@@ -34,7 +34,7 @@ fun convertDateToDifferentFormat(date: String): String? {
         val currentDate: Date = from.parse(date) as Date
         println("current Date is $currentDate")
         val to: DateFormat =
-            SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.ENGLISH) // current format
+            SimpleDateFormat("dd MMMM yyyy, HH:mm", Locale.ENGLISH) // current format
         convertedDate = to.format(currentDate)
 
         println(convertedDate)
